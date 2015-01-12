@@ -1,3 +1,6 @@
 module TimeMachine.Travel where
 
-backwards b = []
+import Array
+
+backward history =
+  Array.get 1 <| Array.fromList history.entries

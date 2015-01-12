@@ -1,6 +1,6 @@
 .INTERMEDIATE: test-unwrapped.js
 
-test.js: Test.elm Test/*.elm
+test.js: Test.elm Test/*.elm ../src/**/*.elm
 	elm-make Test.elm --output test-unwrapped.js
 	./elm-io.sh test-unwrapped.js test.js
 
