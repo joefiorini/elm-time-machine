@@ -9,10 +9,12 @@ import ElmTest.Assertion (assert, assertEqual)
 import ElmTest.Runner.Console (runDisplay)
 
 import Test.History as History
+import Test.Travel as Travel
 
 tests : Test
 tests = suite "A Test Suite"
         [ History.tests
+        , Travel.tests
         ]
 
 port requests : Signal Request
