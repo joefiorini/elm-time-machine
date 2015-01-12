@@ -31,6 +31,8 @@ tests =
       [ test "past is empty list" <| assertEqual
         (.entries History.default)
         startingStep
+      , test "current is Nothing"
+        <| assertEqual Nothing (.current History.default)
       ]
 
     , suite "at initial entry"

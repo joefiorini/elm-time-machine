@@ -4,12 +4,16 @@ import List
 
 type alias History a =
   { entries : List a
+  , current : Maybe a
+  , pointer : Int
   }
 
 initial = -1
 
 default =
   { entries = []
+  , current = Nothing
+  , pointer = 1
   }
 
 record : a -> History a -> History a

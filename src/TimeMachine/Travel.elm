@@ -3,4 +3,8 @@ module TimeMachine.Travel where
 import Array
 
 backward history =
-  Array.get 1 <| Array.fromList history.entries
+  let current' = Array.get history.pointer <| Array.fromList history.entries
+      pointer' = history.pointer + 1
+  in
+    { history | current <- current'
+              , pointer <- pointer' }
