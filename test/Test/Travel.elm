@@ -18,25 +18,25 @@ tests =
 
     [ suite "backward once"
       [ test "returns Nothing with no entries"
-        <| assertEqual Nothing
-        <| (Travel.backward History.default |> .current)
+        <| assertCurrent Nothing
+        <| Travel.backward History.default
       , test "returns initial state after first entry"
-        <| assertEqual (Just startingStep)
-        <| (Travel.backward history1 |> .current)
+        <| assertCurrent (Just startingStep)
+        <| Travel.backward history1
       , test "returns firstStep after second entry"
-        <| assertEqual (Just firstStep)
-        <| (Travel.backward history2 |> .current)
+        <| assertCurrent (Just firstStep)
+        <| Travel.backward history2
       ]
     , suite "backward twice"
       [ test "returns Nothing with no entries"
         <| assertCurrent Nothing
-        <| (Travel.backward << Travel.backward <| History.default)
+        <| (History.default |> Travel.backward << Travel.backward)
       , test "returns Nothing after first entry"
         <| assertCurrent Nothing
-        <| Travel.backward << Travel.backward <| history1
+        <| (history1 |> Travel.backward << Travel.backward)
       , test "returns initial after second entry"
         <| assertCurrent (Just startingStep)
-        <| (Travel.backward << Travel.backward <| history2)
+        <| (history2 |> Travel.backward << Travel.backward)
       ]
     , suite "foward after backward once"
       [ test "returns Nothing with no entries"
@@ -47,21 +47,21 @@ tests =
         <| Travel.forward history1
       , test "returns first entry after backward from first entry"
         <| assertCurrent (Just firstStep)
-        <| (Travel.backward >> Travel.forward <| history1)
+        <| (history1 |> Travel.backward >> Travel.forward)
       , test "returns second entry after backward from second entry"
         <| assertCurrent (Just secondStep)
-        <| (Travel.backward >> Travel.forward <| history2)
+        <| (history2 |> Travel.backward >> Travel.forward)
       ]
     , suite "forward after backward twice"
       [ test "returns Nothing with no entries"
         <| assertCurrent Nothing
-        <| (Travel.backward >> Travel.backward >> Travel.forward <| History.default)
+        <| (History.default |> Travel.backward >> Travel.backward >> Travel.forward)
       , test "returns starting step after first entry"
         <| assertCurrent (Just startingStep)
-        <| (Travel.backward >> Travel.backward >> Travel.forward <| history1)
+        <| (history1 |> Travel.backward >> Travel.backward >> Travel.forward)
       , test "returns Nothing entry after two redos from start"
         <| assertCurrent Nothing
-        <| (Travel.backward >> Travel.backward >> Travel.forward >> Travel.forward <| history1)
+        <| (history1 |> Travel.backward >> Travel.backward >> Travel.forward >> Travel.forward)
       ]
     , suite "backward once, forward twice"
       [ test "returns Nothing after first entry"
