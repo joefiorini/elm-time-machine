@@ -5,6 +5,7 @@ import TimeMachine.History as History
 startingStep = []
 firstStep = [1]
 secondStep = [1,2]
+secondStep' = [1,3]
 thirdStep = [1,2,3]
 fourthStep = [1,2,3,4]
 

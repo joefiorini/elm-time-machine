@@ -63,4 +63,15 @@ tests =
         <| assertCurrent Nothing
         <| (Travel.backward >> Travel.backward >> Travel.forward >> Travel.forward <| history1)
       ]
+    , suite "backward once, forward twice"
+      [ test "returns Nothing after first entry"
+        <| assertCurrent Nothing
+        <| (history1 |> Travel.backward >> Travel.forward >> Travel.forward)
+      ]
+    , suite "forking history"
+      [ test "simple case"
+        <| assertCurrent (Just secondStep)
+        <| (history2 |> Travel.backward >> Travel.backward >>
+          (History.record secondStep') >> Travel.backward)
+      ]
     ]

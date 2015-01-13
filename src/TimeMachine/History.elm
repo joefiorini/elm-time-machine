@@ -20,4 +20,5 @@ record : a -> History a -> History a
 record entry history =
   let entries' = entry :: history.entries
   in
-  { history | entries <- entries' }
+    { history | entries <- entries'
+              , pointer <- 1 }
