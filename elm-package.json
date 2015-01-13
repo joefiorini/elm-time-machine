@@ -1,12 +1,17 @@
 {
     "version": "1.0.0",
-    "summary": "helpful summary of your project, less than 80 characters",
-    "repository": "https://github.com/USER/PROJECT.git",
+    "summary": "elm-time-machine Tests",
+    "repository": "http://github.com/joefiorini/elm-time-machine.git",
     "license": "BSD3",
     "source-directories": [
-        "."
+        ".",
+        "../src"
     ],
-    "exposed-modules": [],
+    "exposed-modules": [
+      "TimeMachine",
+      "TimeMachine.History",
+      "TimeMachine.Travel"
+    ],
     "dependencies": {
         "elm-lang/core": "1.1.0 <= v < 2.0.0"
     }
