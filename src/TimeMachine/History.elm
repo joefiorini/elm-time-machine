@@ -1,5 +1,9 @@
 module TimeMachine.History where
 
+{-| Internal module containing implementation for
+History records
+|-}
+
 import List
 
 type alias History a =
