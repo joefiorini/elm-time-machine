@@ -37,6 +37,7 @@ to it later.
      History.record newState history
 
 |-}
+record : History.History
 record = History.record
 
 {-| Returns a history record with `current` set to
@@ -52,6 +53,7 @@ beginning of time.
            }
          Nothing -> state
 |-}
+travelBackward : History.History -> History.History
 travelBackward = Travel.backward
 
 {-| Returns a history record with `current` set to
@@ -66,6 +68,7 @@ travelBackward = Travel.backward
            }
          Nothing -> state
 |-}
+travelForward : History.History -> History.History
 travelForward = Travel.forward
 
 {-| Returns a history record with the passed in
