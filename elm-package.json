@@ -4,8 +4,7 @@
     "repository": "http://github.com/joefiorini/elm-time-machine.git",
     "license": "BSD3",
     "source-directories": [
-        ".",
-        "../src"
+        "src"
     ],
     "exposed-modules": [
       "TimeMachine",
