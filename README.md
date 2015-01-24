@@ -1,6 +1,6 @@
 # Time Machine for Elm
 
-It's like a Delorean for your state!
+It's like a DeLorean for your state!
 
 ## What is it?
 
@@ -66,7 +66,7 @@ To redo call `travelForward`:
 ```elm
 step update state =
   case update of
-    Undo ->
+    Redo ->
       let history' = TimeMachine.travelForward state.history
       in
         case history'.current of
