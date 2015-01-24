@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "summary": "elm-time-machine Tests",
+    "summary": "It's like a Delorean for your state!",
     "repository": "http://github.com/joefiorini/elm-time-machine.git",
     "license": "BSD3",
     "source-directories": [
