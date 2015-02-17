@@ -22,7 +22,7 @@ You need to track the state on the `Contact` record instead like this:
 ## Recording History
 @docs record, History
 
-|-}
+-}
 
 import TimeMachine.History as History
 import TimeMachine.Travel as Travel
@@ -36,7 +36,7 @@ to it later.
   in
      History.record newState history
 
-|-}
+-}
 record : History.History
 record = History.record
 
@@ -52,7 +52,7 @@ beginning of time.
                    , history <- history
            }
          Nothing -> state
-|-}
+-}
 travelBackward : History.History -> History.History
 travelBackward = Travel.backward
 
@@ -67,7 +67,7 @@ travelBackward = Travel.backward
                    , history <- history
            }
          Nothing -> state
-|-}
+-}
 travelForward : History.History -> History.History
 travelForward = Travel.forward
 
@@ -79,7 +79,7 @@ your `initialState` function.
       { current = Nothing
       , history = TimeMachine.initialize Model.initialState
       }
-|-}
+-}
 initialize : a -> History a
 initialize =
    flip record History.default

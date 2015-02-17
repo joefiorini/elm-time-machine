@@ -3,7 +3,7 @@ module TimeMachine.Travel where
 {-| Internal module containing implementation for time travel.
 You might say it's what makes time travel possible. Like
 the flux capacitor maybe?
-|-}
+-}
 
 import Array
 
