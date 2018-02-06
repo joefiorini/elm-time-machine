@@ -5,3 +5,4 @@ test/supervise
 /supervise
 test/test-unwrapped.js
 test/test.js
+node_modules/
