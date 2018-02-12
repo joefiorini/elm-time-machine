@@ -19,7 +19,7 @@ You need to track the state on the `Contact` record instead like this:
 
 ## Traveling through Time (Undo/Redo)
 
-@docs travelBackward, travelForward
+@docs travelBackward, travelForward, initialize
 
 
 ## Recording History
@@ -34,6 +34,8 @@ import TimeMachine.History as History
 import TimeMachine.Travel as Travel
 
 
+{-| Alias for the History model type
+-}
 type alias History a =
     History.History a
 
@@ -48,7 +50,7 @@ History.record newState history
 |
 
 -}
-record : History.History
+record : a -> History a -> History a
 record =
     History.record
 
@@ -69,7 +71,7 @@ beginning of time.
 |
 
 -}
-travelBackward : History.History -> History.History
+travelBackward : History a -> History a
 travelBackward =
     Travel.backward
 
@@ -89,7 +91,7 @@ travelBackward =
 |
 
 -}
-travelForward : History.History -> History.History
+travelForward : History a -> History a
 travelForward =
     Travel.forward
 

@@ -3,11 +3,14 @@ module TimeMachine.History exposing (..)
 {-| Internal module containing implementation for
 History records
 |
+@docs initial, default, record, History
 -}
 
 import List
 
 
+{-| The model type for History records
+-}
 type alias History a =
     { entries : List a
     , current : Maybe a
@@ -15,10 +18,16 @@ type alias History a =
     }
 
 
+{-| The initial pointer, internal
+-}
+initial : Int
 initial =
     -1
 
 
+{-| The default state, internal
+-}
+default : History a
 default =
     { entries = []
     , current = Nothing
@@ -26,6 +35,8 @@ default =
     }
 
 
+{-| Your history entries
+-}
 record : a -> History a -> History a
 record entry history =
     let
